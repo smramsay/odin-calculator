@@ -30,6 +30,10 @@ div {
     border-radius: 6px;
 }
 
+.function-container {
+    flex: 1;
+}
+
 .button-container {
     display: flex;
     flex: 1;
@@ -42,6 +46,7 @@ div {
     display: flex;
     flex-direction: column;
     flex: 3;
+    gap: 3px;
 }
 
 .digit-container {
@@ -49,7 +54,7 @@ div {
     gap: 3px;
     flex-direction: column;
     flex-wrap: wrap;
-    flex: 1;
+    flex: 4;
 }
 .digit-container div {
     display: flex;
