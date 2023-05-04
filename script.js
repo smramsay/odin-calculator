@@ -64,6 +64,10 @@ function equals() {
     }
 }
 
+function backspace() {
+    display.textContent = display.textContent.slice(0, -1);
+}
+
 document.querySelector('#clear').addEventListener('click', clearAll);
 
 document.querySelector('#negate').addEventListener('click', (event) => {
@@ -82,6 +86,8 @@ document.addEventListener('keydown', (event) => {
         setOperator(operatorMap[event.key]);
     } else if (event.key === 'Enter') {
         equals();
+    } else if (event.key === 'Backspace') {
+        backspace();
     }
 })
 
