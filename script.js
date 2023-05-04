@@ -88,6 +88,8 @@ document.addEventListener('keydown', (event) => {
         equals();
     } else if (event.key === 'Backspace') {
         backspace();
+    } else if (event.key === 'c') {
+        clearAll();
     }
 })
 
