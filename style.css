@@ -36,9 +36,8 @@
 .button-container {
     display: flex;
     flex: 1;
-    justify-content: center;
     margin: 15px;
-    gap: 4px;
+    gap: 3px;
 }
 
 .left-container {
@@ -48,15 +47,7 @@
     gap: 3px;
 }
 
-.digit-container {
-    display: flex;
-    gap: 3px;
-    flex-direction: column;
-    flex-wrap: wrap;
-    flex: 4;
-}
-
-.digit-container div {
+.left-container div {
     display: flex;
     flex: 1;
     align-items: center;
@@ -66,7 +57,6 @@
 
 .button {
     flex: 1 1 auto;
-    text-align: center;
     font-size: 48px;
     font-weight: bold;
     height: 100%;
@@ -76,13 +66,13 @@
     color: white;
 }
 
-#\30 {
+#\30, #clear {
     flex: 2;
+    padding: 0 6px;
 }
 
 #clear {
     background-color: brown;
-    flex: 3;
 }
 
 .operator-container {
