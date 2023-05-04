@@ -44,7 +44,7 @@ document.querySelector('#negate').addEventListener('click', (event) => {
     display.textContent = parseFloat(display.textContent) * -1;
 });
 
-document.querySelectorAll('.digit-container .button').forEach((button) => {
+document.querySelectorAll('.numbers .button').forEach((button) => {
     button.addEventListener('click', (event) => {
         const entry = event.target.textContent;
         if (entry === '.' && display.textContent.includes('.')) {
