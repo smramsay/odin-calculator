@@ -1,15 +1,11 @@
 * {
     box-sizing: border-box;
 }
-div {
-    min-width: 25px;
-    background-color: rgb(148, 150, 155);
-    text-align: center;
-}
 
 .calculator-container {
     display: flex;
     flex-direction: column;
+    background-color: rgb(148, 150, 155);
     width: 500px;
     height: 640px;
     margin: auto;
@@ -20,6 +16,7 @@ div {
 .display-container {
     margin: 25px auto;
 }
+
 #display {
     text-align: right;
     font-size: 36px;
@@ -58,6 +55,7 @@ div {
     flex-wrap: wrap;
     flex: 4;
 }
+
 .digit-container div {
     display: flex;
     flex: 1;
@@ -68,6 +66,7 @@ div {
 
 .button {
     flex: 1 1 auto;
+    text-align: center;
     font-size: 48px;
     font-weight: bold;
     height: 100%;
@@ -76,6 +75,7 @@ div {
     background-color: rgb(85, 92, 71);
     color: white;
 }
+
 #\30 {
     flex: 2;
 }
