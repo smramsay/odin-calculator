@@ -31,7 +31,9 @@ div {
 }
 
 .function-container {
+    display: flex;
     flex: 1;
+    gap: 3px;
 }
 
 .button-container {
@@ -76,6 +78,11 @@ div {
 }
 #\30 {
     flex: 2;
+}
+
+#clear {
+    background-color: brown;
+    flex: 3;
 }
 
 .operator-container {

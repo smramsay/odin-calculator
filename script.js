@@ -40,6 +40,10 @@ function clearAll() {
 
 document.querySelector('#clear').addEventListener('click', clearAll);
 
+document.querySelector('#negate').addEventListener('click', (event) => {
+    display.textContent = parseFloat(display.textContent) * -1;
+});
+
 document.querySelectorAll('.digit-container .button').forEach((button) => {
     button.addEventListener('click', (event) => {
         const entry = event.target.textContent;
