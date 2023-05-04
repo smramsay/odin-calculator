@@ -83,6 +83,7 @@ document.addEventListener('keydown', (event) => {
     if (parseInt(event.key) || event.key === "0"|| event.key === '.') {
         appendToDisplay(event.key);
     } else if (event.key in operatorMap) {
+        event.preventDefault();
         setOperator(operatorMap[event.key]);
     } else if (event.key === 'Enter') {
         equals();
