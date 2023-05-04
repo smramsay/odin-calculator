@@ -30,12 +30,38 @@ let [operation, first, second] = [null, null, null];
 function clearDisplay() {
     display.textContent = "";
 }
+
 function clearMemory() {
     [operation, first, second] = [null, null, null];
 }
+
 function clearAll() {
     clearDisplay();
     clearMemory();
+}
+
+function appendToDisplay(input) {
+    if (input === '.' && display.textContent.includes('.')) {
+        return;
+    }
+    display.textContent += input;
+}
+
+function setOperator(operator) {
+    if (first !== null || display.textContent == "") {
+        return;
+    }
+    operation = operator;
+    first = parseFloat(display.textContent);
+    clearDisplay();
+}
+
+function equals() {
+    second = parseFloat(display.textContent);
+    if (first !== null && second !== null && !isNaN(second)) {
+        display.textContent = operate(operation, first, second);
+        clearMemory();
+    }
 }
 
 document.querySelector('#clear').addEventListener('click', clearAll);
@@ -45,30 +71,22 @@ document.querySelector('#negate').addEventListener('click', (event) => {
 });
 
 document.querySelectorAll('.numbers .button').forEach((button) => {
-    button.addEventListener('click', (event) => {
-        const entry = event.target.textContent;
-        if (entry === '.' && display.textContent.includes('.')) {
-            return;
-        }
-        display.textContent += event.target.textContent;
-    });
+    button.addEventListener('click', (event) => appendToDisplay(event.target.textContent));
 });
+
+document.addEventListener('keydown', (event) => {
+    const operatorMap = {'*': 'multiply', '/': 'divide', '-': 'subtract', '+': 'add'};
+    if (parseInt(event.key) || event.key === "0"|| event.key === '.') {
+        appendToDisplay(event.key);
+    } else if (event.key in operatorMap) {
+        setOperator(operatorMap[event.key]);
+    } else if (event.key === 'Enter') {
+        equals();
+    }
+})
 
 document.querySelectorAll('.operator-container .button:not(#equals)').forEach((button) => {
-    button.addEventListener('click', (event) => {
-        if (first !== null || display.textContent == "") {
-            return;
-        }
-        operation = event.target.id;
-        first = parseFloat(display.textContent);
-        clearDisplay();
-    })
+    button.addEventListener('click', (event) => setOperator(event.target.id))
 });
 
-document.querySelector('#equals').addEventListener('click', (event) => {
-    second = parseFloat(display.textContent);
-    if (first !== null && second !== null && !isNaN(second)) {
-        display.textContent = operate(operation, first, second);
-        clearMemory();
-    }
-});
+document.querySelector('#equals').addEventListener('click', equals);
