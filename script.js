@@ -71,7 +71,9 @@ function backspace() {
 document.querySelector('#clear').addEventListener('click', clearAll);
 
 document.querySelector('#negate').addEventListener('click', (event) => {
-    display.textContent = parseFloat(display.textContent) * -1;
+    if (display.textContent) {
+        display.textContent = parseFloat(display.textContent) * -1;
+    }
 });
 
 document.querySelectorAll('.numbers .button').forEach((button) => {
